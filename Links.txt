@@ -1,0 +1,14 @@
+http://msdn.microsoft.com/en-us/library/shz8h065%28v=vs.110%29.aspx
+http://www.codeproject.com/Articles/730841/ASP-NET-MVC-Identity-Implementing-Group-Based
+http://www.codeguru.com/csharp/.net/net_asp/mvc/securing-asp.net-mvc-applications-with-asp.net-identity.htm
+http://www.teamscs.com/2014/11/asp-net-identity-framework/
+
+http://www.asp.net/identity/overview/getting-started/introduction-to-aspnet-identity
+
+Das Projekt "AspNetIdentityProjectManagement" basiert auf folgendem, sehr gut erklärten Tutorial:
+http://www.asp.net/mvc/overview/getting-started/database-first-development/setting-up-database
+
+Hier wird das Generieren von Views (CRUD) erklärt:
+http://www.asp.net/mvc/overview/getting-started/database-first-development/generating-views
+
+Code First Migrations: http://msdn.microsoft.com/en-us/data/jj591621

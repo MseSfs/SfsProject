@@ -1,0 +1,5 @@
+﻿INSERT INTO [dbo].[Project] ([Id], [Name], [Description]) VALUES (N'1', N'Thread Model', N'Create a thread model for a known project.')
+INSERT INTO [dbo].[Project] ([Id], [Name], [Description]) VALUES (N'2', N'SQL or Command Injection', N'Overview, examples, mitigations.')
+INSERT INTO [dbo].[Project] ([Id], [Name], [Description]) VALUES (N'3', N'.NET Crypto API Overview', N'Overview, DPAPI, demo application.')
+INSERT INTO [dbo].[Project] ([Id], [Name], [Description]) VALUES (N'4', N'XSS (Cross Site Scripting)', N'Overview, examples, mitigations.')
+INSERT INTO [dbo].[Project] ([Id], [Name], [Description]) VALUES (N'5', N'ASP.NET: Role Based Security with ASP.NET Identity framework', N'Simple project management web app, authentication, ...')
