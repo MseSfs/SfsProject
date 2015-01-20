@@ -12,3 +12,11 @@ Hier wird das Generieren von Views (CRUD) erklärt:
 http://www.asp.net/mvc/overview/getting-started/database-first-development/generating-views
 
 Code First Migrations: http://msdn.microsoft.com/en-us/data/jj591621
+
+------------
+DIE NEUEN LINKS:
+ - Theorie zu ASP.NET Identity und Co: http://www.asp.net/identity/overview/getting-started/introduction-to-aspnet-identity
+ - Sample auf GitHub: https://github.com/rustd/AspnetIdentitySample
+
+TortoiseGit:
+https://code.google.com/p/tortoisegit/wiki/Download
