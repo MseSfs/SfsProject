@@ -16,6 +16,7 @@ namespace AspnetIdentitySample.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Projects
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Projects.ToList());
@@ -37,7 +38,7 @@ namespace AspnetIdentitySample.Controllers
         }
 
         // GET: Projects/Create
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
