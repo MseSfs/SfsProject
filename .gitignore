@@ -1,3 +1,4 @@
 /AspNetIdentityProjectManagement/*.suo
 
 /AspNetIdentityProjectManagement/AspNetIdentityProjectManagement/*.user
+/AspNetIdentityProjectManagement/AspNetIdentityProjectManagement/obj/Debug
