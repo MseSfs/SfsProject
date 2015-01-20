@@ -13,9 +13,9 @@ using System.Web;
 namespace AspnetIdentitySample
 {
     // This is useful if you do not want to tear down the database each time you run the application.
-    // You want to create a new database if the Model changes
-    // public class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
-    public class MyDbInitializer : DropCreateDatabaseAlways<MyDbContext>
+    // You want to create a new database each time when the application starts
+    // public class MyDbInitializer : DropCreateDatabaseAlways<MyDbContext>
+    public class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
     {
         protected override void Seed(MyDbContext context)
         {

@@ -33,6 +33,14 @@ namespace AspnetIdentitySample.Models
         public bool IsDone { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
+
+    public class Project
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
     public class MyDbContext : IdentityDbContext<ApplicationUser>
     {
         public MyDbContext()
@@ -54,6 +62,8 @@ namespace AspnetIdentitySample.Models
         public DbSet<ToDo> ToDoes { get; set; }
 
         public DbSet<MyUserInfo> MyUserInfo { get; set; }
+
+        public System.Data.Entity.DbSet<AspnetIdentitySample.Models.Project> Projects { get; set; }
     }
 
 
