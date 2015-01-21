@@ -2,6 +2,8 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.Facebook;
 
 namespace AspnetIdentitySample
 {
@@ -29,11 +31,13 @@ namespace AspnetIdentitySample
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "651246251663929",
+               appSecret: "53db0b08ad7991801fa7e4c3241993a2");
 
-            //app.UseGoogleAuthentication();
+            //app.UseGoogleAuthentication(
+            //    clientId: "186277083551 - h4n1ue7lttp5ajnm0ai4b33m2l78fe7r.apps.googleusercontent.com",
+            //    clientSecret: "mnsy3Zxqt-VhXB3mB2Uq_ItQ");
         }
     }
 }

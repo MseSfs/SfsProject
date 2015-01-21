@@ -82,12 +82,12 @@ namespace AspnetIdentitySample.Controllers
                 var user = new ApplicationUser() { UserName = model.UserName };
                 user.HomeTown = model.HomeTown;
                 user.MyUserInfo = new MyUserInfo() { FirstName = model.UserName };
-                
+
                 // Store Gender as Claim
                 user.Claims.Add(new IdentityUserClaim() { ClaimType = ClaimTypes.Gender, ClaimValue = "Male" });
-                    
+
                 var result = await UserManager.CreateAsync(user, model.Password);
-                
+
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
@@ -222,7 +222,11 @@ namespace AspnetIdentitySample.Controllers
                 // If the user does not have an account, then prompt the user to create an account
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
+                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel
+                {
+                    UserName = loginInfo.DefaultUserName,
+                    LoginProvider = loginInfo.Login.LoginProvider
+                });
             }
         }
 
@@ -274,7 +278,7 @@ namespace AspnetIdentitySample.Controllers
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser() { UserName = model.UserName };
-                
+
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
