@@ -9,7 +9,7 @@ namespace AspnetIdentitySample.Models
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required]
+        //[Required]
         public string LoginProvider { get; set; }
     }
 
