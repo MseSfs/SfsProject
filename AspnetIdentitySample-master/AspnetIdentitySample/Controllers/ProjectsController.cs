@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using AspnetIdentitySample.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using AspnetIdentitySample.Models;
 
 namespace AspnetIdentitySample.Controllers
 {
     [Authorize]
     public class ProjectsController : Controller
     {
-        private MyDbContext db = new MyDbContext();
+        private SfsDbContext db = new SfsDbContext();
 
         // GET: Projects
         public ActionResult Index()
@@ -22,13 +19,13 @@ namespace AspnetIdentitySample.Controllers
         }
 
         // GET: Projects/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            Project project = await db.Projects.FindAsync(id);
             if (project == null)
             {
                 return HttpNotFound();
@@ -49,12 +46,12 @@ namespace AspnetIdentitySample.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description")] Project project)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Description")] Project project)
         {
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -63,13 +60,13 @@ namespace AspnetIdentitySample.Controllers
 
         // GET: Projects/Edit/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            Project project = await db.Projects.FindAsync(id);
             if (project == null)
             {
                 return HttpNotFound();
@@ -83,12 +80,12 @@ namespace AspnetIdentitySample.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description")] Project project)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description")] Project project)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(project);
@@ -96,13 +93,13 @@ namespace AspnetIdentitySample.Controllers
 
         // GET: Projects/Delete/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            Project project = await db.Projects.FindAsync(id);
             if (project == null)
             {
                 return HttpNotFound();
@@ -114,9 +111,9 @@ namespace AspnetIdentitySample.Controllers
         [HttpPost, ActionName("Delete")]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
+            Project project = await db.Projects.FindAsync(id);
             db.Projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("Index");

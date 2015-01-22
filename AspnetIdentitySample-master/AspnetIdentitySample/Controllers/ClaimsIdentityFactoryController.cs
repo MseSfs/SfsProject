@@ -2,13 +2,9 @@
 using AspnetIdentitySample.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.Owin.Security;
 
 namespace AspnetIdentitySample.Controllers
 {
@@ -17,7 +13,7 @@ namespace AspnetIdentitySample.Controllers
         // GET: ClaimsIdentityFactory
         public async Task<ActionResult> Index(LoginViewModel model, string returnUrl)
         {
-            var context = new MyDbContext();
+            var context = new SfsDbContext();
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             userManager.ClaimsIdentityFactory = new MyClaimsIdentityFactory<ApplicationUser>();
 

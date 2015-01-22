@@ -1,6 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
-using System.Security;
+﻿using System.Web.Optimization;
 
 namespace AspnetIdentitySample
 {

@@ -1,16 +1,12 @@
 ﻿using AspnetIdentitySample.Models;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace AspnetIdentitySample.IdentityExtensions
 {
     public class MyUserValidation : IIdentityValidator<ApplicationUser>
     {
-        public System.Threading.Tasks.Task<IdentityResult> ValidateAsync(ApplicationUser item)
+        public Task<IdentityResult> ValidateAsync(ApplicationUser item)
         {
             if (item.UserName.ToLower().Contains("bad"))
                 return Task.FromResult(IdentityResult.Failed("UserName cannot contain bad"));

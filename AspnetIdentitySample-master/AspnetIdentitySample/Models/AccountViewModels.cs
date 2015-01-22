@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AspnetIdentitySample.Models 
 {
@@ -64,6 +63,7 @@ namespace AspnetIdentitySample.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+        [Display(Name = "Home town")]
         public string HomeTown { get; set; }
     }
 }

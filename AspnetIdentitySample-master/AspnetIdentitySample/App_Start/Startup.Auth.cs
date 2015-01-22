@@ -2,8 +2,6 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using Microsoft.Owin.Security.Google;
-using Microsoft.Owin.Security.Facebook;
 
 namespace AspnetIdentitySample
 {

@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace AspnetIdentitySample.Models
 {
@@ -13,8 +7,7 @@ namespace AspnetIdentitySample.Models
     {
         // HomeTown will be stored in the same table as Users
         public string HomeTown { get; set; }
-        public virtual ICollection<ToDo> ToDoes { get; set; }
-  
+        
         // FirstName & LastName will be stored in a different table called MyUserInfo
         public virtual MyUserInfo MyUserInfo { get; set; }
     }
@@ -26,14 +19,6 @@ namespace AspnetIdentitySample.Models
         public string LastName { get; set; }
     }
 
-    public class ToDo
-    {
-        public int Id { get; set; }
-        public string Description { get; set; }
-        public bool IsDone { get; set; }
-        public virtual ApplicationUser User { get; set; }
-    }
-
     public class Project
     {
         public int Id { get; set; }
@@ -41,29 +26,16 @@ namespace AspnetIdentitySample.Models
         public string Description { get; set; }
     }
 
-    public class MyDbContext : IdentityDbContext<ApplicationUser>
+    public class SfsDbContext : IdentityDbContext<ApplicationUser>
     {
-        public MyDbContext()
+        public SfsDbContext()
             : base("DefaultConnection")
         {
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // Change the name of the table to be Users instead of AspNetUsers
-            modelBuilder.Entity<IdentityUser>()
-                .ToTable("Users");
-            modelBuilder.Entity<ApplicationUser>()
-                .ToTable("Users");
-        }
-
-        public DbSet<ToDo> ToDoes { get; set; }
-
         public DbSet<MyUserInfo> MyUserInfo { get; set; }
 
-        public System.Data.Entity.DbSet<AspnetIdentitySample.Models.Project> Projects { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 
 
