@@ -29,10 +29,22 @@ namespace AspnetIdentitySample
             //   consumerKey: "",
             //   consumerSecret: "");
 
+            // created by Sabine Winkler
             app.UseFacebookAuthentication(
-               appId: "651246251663929",
-               appSecret: "53db0b08ad7991801fa7e4c3241993a2");
+                appId: "742587635849118",
+                appSecret: "66a555f1e5a8d900535b3285777f3a97");
 
+            // created by Thomas Luger
+            //app.UseFacebookAuthentication(
+            //   appId: "651246251663929",
+            //   appSecret: "53db0b08ad7991801fa7e4c3241993a2");
+
+            // created by Sabine Winkler
+            app.UseGoogleAuthentication(
+                clientId: "816887489576-o25i68qjhrem827jau95rohsamcarou5.apps.googleusercontent.com",
+                clientSecret: "jdva1YN9lDrJd-ZXnD7IhYlz");
+
+            // created by Thomas Luger
             //app.UseGoogleAuthentication(
             //    clientId: "186277083551 - h4n1ue7lttp5ajnm0ai4b33m2l78fe7r.apps.googleusercontent.com",
             //    clientSecret: "mnsy3Zxqt-VhXB3mB2Uq_ItQ");

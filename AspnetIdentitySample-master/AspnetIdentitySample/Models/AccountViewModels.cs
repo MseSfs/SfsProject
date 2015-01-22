@@ -10,6 +10,9 @@ namespace AspnetIdentitySample.Models
 
         //[Required]
         public string LoginProvider { get; set; }
+
+        [Display(Name = "Home town")]
+        public string HomeTown { get; set; }
     }
 
     public class ManageUserViewModel

@@ -273,7 +273,11 @@ namespace AspnetIdentitySample.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    HomeTown = model.HomeTown
+                };
 
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)

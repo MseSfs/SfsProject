@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AspnetIdentitySample.IdentityExtensions
 {
-    public class MyClaimsIdentityFactory<TUser> : ClaimsIdentityFactory<TUser> where TUser : IUser<string>
+    public class MyClaimsIdentityFactory<TUser> : ClaimsIdentityFactory<TUser> where TUser : IdentityUser
     {
         internal const string IdentityProviderClaimType = "http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider";
         internal const string DefaultIdentityProviderClaimValue = "ASP.NET Identity";
@@ -43,8 +44,6 @@ namespace AspnetIdentitySample.IdentityExtensions
             return id;
         }
 
-        public string UserIdClaimType { get; set; }
-        public string UserNameClaimType { get; set; }
         public string LastLoginTimeType { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace AspnetIdentitySample.Controllers
 
         // Only Authenticated users can access their profile
         [Authorize]
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             // Instantiate the ASP.NET Identity system
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new SfsDbContext()));
@@ -25,7 +25,7 @@ namespace AspnetIdentitySample.Controllers
             
             // Recover the profile information about the logged in user
             ViewBag.HomeTown = currentUser.HomeTown;
-            ViewBag.FirstName = currentUser.MyUserInfo.FirstName;
+            ViewBag.FirstName = currentUser.MyUserInfo == null ? "" : currentUser.MyUserInfo.FirstName;
 
             return View();
         }
