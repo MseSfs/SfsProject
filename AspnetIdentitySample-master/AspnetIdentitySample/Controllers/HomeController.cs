@@ -25,7 +25,7 @@ namespace AspnetIdentitySample.Controllers
             
             // Recover the profile information about the logged in user
             ViewBag.HomeTown = currentUser.HomeTown;
-            ViewBag.FirstName = currentUser.MyUserInfo == null ? "" : currentUser.MyUserInfo.FirstName;
+            ViewBag.FirstName = currentUser.UserName;
 
             return View();
         }

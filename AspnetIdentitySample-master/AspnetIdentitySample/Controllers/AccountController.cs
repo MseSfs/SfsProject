@@ -2,7 +2,6 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -78,9 +77,6 @@ namespace AspnetIdentitySample.Controllers
                 var user = new ApplicationUser() { UserName = model.UserName };
                 user.HomeTown = model.HomeTown;
                 user.MyUserInfo = new MyUserInfo() { FirstName = model.UserName };
-
-                // Store Gender as Claim
-                user.Claims.Add(new IdentityUserClaim() { ClaimType = ClaimTypes.Gender, ClaimValue = "Male" });
 
                 var result = await UserManager.CreateAsync(user, model.Password);
 
@@ -348,9 +344,6 @@ namespace AspnetIdentitySample.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add more custom claims here if you want. Eg HomeTown can be a claim for the User
-            var homeclaim = new Claim(ClaimTypes.Country, user.HomeTown == null ? "" : user.HomeTown);
-            identity.AddClaim(homeclaim);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
