@@ -53,7 +53,7 @@ namespace AspnetIdentitySample
                 HomeTown = "Königswiesen",
                 MyUserInfo = new MyUserInfo() { FirstName = "Sabine", LastName = "Winkler" }
             };
-            var commonUserResult = UserManager.Create(commonUser1, "test123");
+            var commonUserResult = UserManager.Create(commonUser1, "swinkler");
             if (commonUserResult.Succeeded)
             {
                 UserManager.AddToRole(commonUser1.Id, nameCommon);
@@ -64,7 +64,7 @@ namespace AspnetIdentitySample
                 HomeTown = "Neustift",
                 MyUserInfo = new MyUserInfo() { FirstName = "Thomas", LastName = "Luger" }
             };
-            commonUserResult = UserManager.Create(commonUser2, "test123");
+            commonUserResult = UserManager.Create(commonUser2, "tluger");
             if (commonUserResult.Succeeded)
             {
                 UserManager.AddToRole(commonUser2.Id, nameCommon);
